@@ -137,7 +137,7 @@ for class_name in class_names:
             "An urban street with buildings and cars"
         ])
 ```
-## Load Pre-Trained Model
+## Load Pre-Trained Models
 ### [MetaCLIP](https://github.com/facebookresearch/MetaCLIP) (ViT-bigG-14-quickgelu)
 ```python
 model = open_clip.create_model('ViT-bigG-14-quickgelu', pretrained='metaclip_2_5b').to(device)
