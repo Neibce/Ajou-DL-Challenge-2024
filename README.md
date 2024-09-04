@@ -1,6 +1,6 @@
 # VLM-Ajou-Challenge-2024
 
-- 2024 소프트웨어 중심 대학 공동 딥러닝 챌린지 (24.07.26. ~ 24.08.30.)
+- SW중심대학연합 제3회 아주 소중한 딥러닝 챌린지 (24.07.26. ~ 24.08.30.)
 - Public, Private score 1st
 - Zero-shot classification
 
