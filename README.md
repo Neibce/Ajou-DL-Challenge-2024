@@ -1,4 +1,4 @@
-# VLM-Ajou-Challenge-2024
+# Ajou-DL-Challenge-2024
 
 - SW중심대학연합 제3회 아주 소중한 딥러닝 챌린지 (24.07.26. ~ 24.08.30.)
 - Public, Private score 1st
