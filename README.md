@@ -162,6 +162,57 @@ model = AutoModel.from_pretrained(
     torch_dtype=torch.float16,
     trust_remote_code=True).to('cuda').eval()
 ```
+## DataLoader
+### For MetaCLIP
+```python
+ds_meta = ImageFolder(os.path.join(root, dataset_name), transform=processor_23)
+ds_meta.samples = natsorted(ds_meta.samples)
+dl_meta = DataLoader(ds_meta, shuffle=False, batch_size=32, num_workers=2)
+```
+### For EVA-CLIP
+```python
+ds_eva = ImageFolder(os.path.join(root, dataset_name), transform=processor_20)
+ds_eva.samples = natsorted(ds_eva.samples)
+dl_eva = DataLoader(ds_eva, shuffle=False, batch_size=32, num_workers=2)
+```
+
+## Zero-shot Classification
+### For MetaCLIP
+```python
+meta_probs_list = []
+
+with torch.no_grad(), torch.cuda.amp.autocast():
+    text = tokenizer.tokenize(prompts).to(device)
+    text_features = model.encode_text(text)
+    text_features /= text_features.norm(dim=-1, keepdim=True)
+
+    for x, y in tqdm(dl_meta):
+        x = x.to(device)
+        image_features = model.encode_image(x)
+        image_features /= image_features.norm(dim=-1, keepdim=True)
+
+        zero_shot_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+        meta_probs_list += zero_shot_probs
+```
+### For EVA-CLIP
+```python
+eva_probs_list = []
+
+with torch.no_grad(), torch.cuda.amp.autocast():
+    text = tokenizer(prompts, return_tensors='pt', padding=True).input_ids.to('cuda')
+    text_features = model.encode_text(text)
+    text_features /= text_features.norm(dim=-1, keepdim=True)
+
+    for x, y in tqdm(dl_eva):
+        x = x.to(device)
+        image_features = model.encode_image(x)
+        image_features /= image_features.norm(dim=-1, keepdim=True)
+
+        zero_shot_probs = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+        eva_probs_list += zero_shot_probs
+```
 
 ## Enassemble
 [MetaCLIP](https://github.com/facebookresearch/MetaCLIP)(ViT-bigG-14-quickgelu) * 0.5 + [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B) (EVA-CLIP-18B) * 0.5
+
+## 결론
