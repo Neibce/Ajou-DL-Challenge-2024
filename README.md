@@ -6,6 +6,15 @@
 
 ![private](https://github.com/user-attachments/assets/0fc8d319-017d-42a2-821d-f7bcf985f24a)
 
+## Reference
+### [Demystifying CLIP Data](https://arxiv.org/abs/2309.16671) (2023)
+Hu Xu, Saining Xie, Xiaoqing Ellen Tan, Po-Yao Huang, Russell Howes, Vasu Sharma, Shang-Wen Li, Gargi Ghosh, Luke Zettlemoyer and Christoph Feichtenhofer
+
+### [EVA-CLIP-18B: Scaling CLIP to 18 Billion Parameters](https://arxiv.org/abs/2309.16671) (2023)
+Quan Sun, Jinsheng Wang, Qiying Yu, Yufeng Cui, Fan Zhang, Xiaosong Zhang and Xinlong Wang
+
+### GitHub Repositories: [mlfoundations/open_clip](https://github.com/mlfoundations/open_clip), [huggingface/transformers](https://github.com/huggingface/transformers), [facebookresearch/MetaCLIP](https://github.com/facebookresearch/MetaCLIP), [baaivision/EVA](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B)
+
 ## Pre-Processing
 - [RandomAdjustSharpness](https://pytorch.org/vision/main/generated/torchvision.transforms.RandomAdjustSharpness.html)(2, p=1)
 ```python
@@ -143,7 +152,7 @@ for class_name in class_names:
 model = open_clip.create_model('ViT-bigG-14-quickgelu', pretrained='metaclip_2_5b').to(device)
 ```
 
-### [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B) (EVA-CLIP-18B)
+### [EVA-CLIP-18B](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B) (EVA-CLIP-18B)
 ```python
 model = AutoModel.from_pretrained(
     'BAAI/EVA-CLIP-18B',
@@ -152,4 +161,4 @@ model = AutoModel.from_pretrained(
 ```
 
 ## Enassemble
-[MetaCLIP](https://github.com/facebookresearch/MetaCLIP)(ViT-bigG-14-quickgelu) + [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B) (EVA-CLIP-18B)
+[MetaCLIP](https://github.com/facebookresearch/MetaCLIP)(ViT-bigG-14-quickgelu) * 0.5 + [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B) (EVA-CLIP-18B) * 0.5
