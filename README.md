@@ -43,16 +43,18 @@ processor_23 = T.Compose(
      ]
 )
 ```
+dataset의 이미지들이 블러 처리가 된 이미지인 것을 확인, [RandomAdjustSharpness](https://pytorch.org/vision/main/generated/torchvision.transforms.RandomAdjustSharpness.html)를 적용해 보았고, 이를 통해 약 1%의 성능 향상(public 기준)이 있음을 알 수 있었음.
 [`torchvision.transforms.functional.adjust_sharpness`](https://pytorch.org/vision/main/generated/torchvision.transforms.functional.adjust_sharpness.html)으로도 대체 가능할 것으로 보임.
 
 ## Prompt-Tuning
-- 주요 프롬프트(1%)
+- 주요 프롬프트
 ```python
     prompts.append(f"a blurry photo of a {class_name}")
     prompts.append(f"a blurry image of a {class_name}")
     prompts.append(f"a blurred photo of a {class_name}")
     prompts.append(f"a blurred image of a {class_name}")
 ```
+ChatGPT 서비스에 dataset의 이미지 10장을 임의로 골라 설명을 시켰을 때, blur라는 단어가 공통적으로 들어감을 확인. 이에 착안해 위의 프롬프트들을 사용하였고 약 1%(public 기준)의 성능 향상을 가져올 수 있었음.
 
 - 전체
 ```python
