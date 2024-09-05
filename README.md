@@ -213,6 +213,10 @@ with torch.no_grad(), torch.cuda.amp.autocast():
 ```
 
 ## Enassemble
-[MetaCLIP](https://github.com/facebookresearch/MetaCLIP)(ViT-bigG-14-quickgelu) * 0.5 + [EVA-CLIP](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B) (EVA-CLIP-18B) * 0.5
+### MetaCLIP * 0.5 + EVA-CLIP * 0.5
+```python
+ensembled_probs_list = [meta_probs * 0.5 + eva_probs * 0.5 for meta_probs, eva_probs in zip(meta_probs_list, eva_probs_list)]
+label_list = [ensembled_probs.reshape(len(class_names), -1).mean(dim=-1).max(dim=-1)[1].tolist() for ensembled_probs in ensembled_probs_list]
+```
 
 ## 결론
