@@ -43,6 +43,7 @@ processor_23 = T.Compose(
      ]
 )
 ```
+[`torchvision.transforms.functional.adjust_sharpness`](https://pytorch.org/vision/main/generated/torchvision.transforms.functional.adjust_sharpness.html)으로도 대체 가능할 것으로 보임.
 
 ## Prompt-Tuning
 - 주요 프롬프트(1%)
