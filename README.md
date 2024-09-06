@@ -10,7 +10,7 @@
 ### [Demystifying CLIP Data](https://arxiv.org/abs/2309.16671) (2023)
 Hu Xu, Saining Xie, Xiaoqing Ellen Tan, Po-Yao Huang, Russell Howes, Vasu Sharma, Shang-Wen Li, Gargi Ghosh, Luke Zettlemoyer and Christoph Feichtenhofer
 
-### [EVA-CLIP-18B: Scaling CLIP to 18 Billion Parameters](https://arxiv.org/abs/2309.16671) (2023)
+### [EVA-CLIP-18B: Scaling CLIP to 18 Billion Parameters](https://arxiv.org/abs/2402.04252) (2023)
 Quan Sun, Jinsheng Wang, Qiying Yu, Yufeng Cui, Fan Zhang, Xiaosong Zhang and Xinlong Wang
 
 ### GitHub Repositories: [mlfoundations/open_clip](https://github.com/mlfoundations/open_clip), [huggingface/transformers](https://github.com/huggingface/transformers), [facebookresearch/MetaCLIP](https://github.com/facebookresearch/MetaCLIP), [baaivision/EVA](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B)
