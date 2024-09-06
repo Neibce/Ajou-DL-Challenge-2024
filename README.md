@@ -218,5 +218,9 @@ with torch.no_grad(), torch.cuda.amp.autocast():
 ensembled_probs_list = [meta_probs * 0.5 + eva_probs * 0.5 for meta_probs, eva_probs in zip(meta_probs_list, eva_probs_list)]
 label_list = [ensembled_probs.reshape(len(class_names), -1).mean(dim=-1).max(dim=-1)[1].tolist() for ensembled_probs in ensembled_probs_list]
 ```
-
+### Drop <=0.002
+```python
+ensembled_probs_list = [torch.where(ensembled_probs > 0.002, ensembled_probs, 0) for ensembled_probs in ensembled_probs_list]
+```
+public에서는 0.002 이하의 값들을 전부 0으로 만든 것이 0.1%의 성능 향상을 보여 적용해보았으나, 이후 private에서는 의미가 없거나 오히려 하락하는 모습을 보였음.
 ## 결론
