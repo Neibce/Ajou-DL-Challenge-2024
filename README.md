@@ -15,6 +15,18 @@ Quan Sun, Jinsheng Wang, Qiying Yu, Yufeng Cui, Fan Zhang, Xiaosong Zhang and Xi
 
 ### GitHub Repositories: [mlfoundations/open_clip](https://github.com/mlfoundations/open_clip), [huggingface/transformers](https://github.com/huggingface/transformers), [facebookresearch/MetaCLIP](https://github.com/facebookresearch/MetaCLIP), [baaivision/EVA](https://github.com/baaivision/EVA/tree/master/EVA-CLIP-18B)
 
+## 발표 자료
+
+
+![슬라이드1](https://github.com/user-attachments/assets/1daa7547-6c35-4cdc-881c-bf77481bab96)|![슬라이드2](https://github.com/user-attachments/assets/93ecba53-efbc-4fd9-885a-9e053cf0f6ed)|![슬라이드3](https://github.com/user-attachments/assets/783116ef-41a6-44b0-99ce-5159ff0cf878)
+--|--|--
+![슬라이드4](https://github.com/user-attachments/assets/022462ff-f0b1-4f2c-866c-c88c097282d0)|![슬라이드5](https://github.com/user-attachments/assets/72ccac2a-743b-499c-8398-9bd5ff7b7c79)|![슬라이드6](https://github.com/user-attachments/assets/ed41055c-0e04-4259-ba32-265b30a137b7)
+![슬라이드7](https://github.com/user-attachments/assets/354e40df-bf46-4124-ad23-2ac0162594b9)|![슬라이드8](https://github.com/user-attachments/assets/11cb11d7-6ae9-406d-a5e3-7c8f0a7d8cae)|![슬라이드9](https://github.com/user-attachments/assets/c378eab8-1cd5-40b0-8e91-13bcafe3abca)
+![슬라이드10](https://github.com/user-attachments/assets/e16b5873-16b7-4d08-a527-e8a71f07a12e)|![슬라이드11](https://github.com/user-attachments/assets/7ffa1a31-d226-4285-b52c-256c339e2d29)|![슬라이드12](https://github.com/user-attachments/assets/bd0bad4e-fcaf-4388-935d-22daf6310a97)
+![슬라이드13](https://github.com/user-attachments/assets/bfdebe47-895c-4aa9-9e64-2b7c13962f72)|![슬라이드14](https://github.com/user-attachments/assets/5a3b50a2-091f-4e26-9cac-8097aeab98ac)|
+
+
+
 ## Pre-Processing
 - [RandomAdjustSharpness](https://pytorch.org/vision/main/generated/torchvision.transforms.RandomAdjustSharpness.html)(2, p=1)
 ```python
@@ -223,4 +235,3 @@ label_list = [ensembled_probs.reshape(len(class_names), -1).mean(dim=-1).max(dim
 ensembled_probs_list = [torch.where(ensembled_probs > 0.002, ensembled_probs, 0) for ensembled_probs in ensembled_probs_list]
 ```
 public에서는 0.002 이하의 값들을 전부 0으로 만든 것이 0.1%의 성능 향상을 보여 적용해보았으나, 이후 private에서는 의미가 없거나 오히려 하락하는 모습을 보였음.
-## 결론
