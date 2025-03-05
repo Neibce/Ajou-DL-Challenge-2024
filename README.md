@@ -1,7 +1,13 @@
 # Ajou-DL-Challenge-2024
 
 - SW중심대학연합 제3회 아주 소중한 딥러닝 챌린지 (24.07.26. ~ 24.08.30.)
-- Public, Private score 1st
+- 대회 목표: 멀티모달 모델(Vision Language Model)을 이용, Scene dataset에서의 Zero-shot classification task 성능을 높이는 것
+- 제한 조건: 분류할 class가 포함된 데이터셋으로 학습 및 파인튜닝 금지
+![private](https://github.com/user-attachments/assets/824b006f-4f39-4e16-832c-c0a663938499)
+
+
+## 결과
+- Public, Private score 1st (0.92024 / 0.91111)
 - Zero-shot classification
 
 ![private](https://github.com/user-attachments/assets/0fc8d319-017d-42a2-821d-f7bcf985f24a)
